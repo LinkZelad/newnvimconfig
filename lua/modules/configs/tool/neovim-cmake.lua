@@ -19,7 +19,7 @@ return function()
 		},
 		copy_compile_commands = true, -- Copy compile_commands.json to current working directory.
 		dap_configurations = { -- Table of different DAP configurations.
-			lldb_vscode = { type = "lldb", request = "launch" },
+			lldb_vscode = { type = "codelldb", request = "launch" },
 			cppdbg_vscode = { type = "cppdbg", request = "launch" },
 		},
 		dap_configuration = "lldb_vscode", -- DAP configuration to use if the projects `parameters_file` does not specify one.
