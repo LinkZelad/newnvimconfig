@@ -248,19 +248,19 @@ fi
 info "Fetching in progress..."
 if [[ "$USE_SSH" -eq "1" ]]; then
 	if is_latest; then
-		execute "git" "clone" "-b" "main" "${CLONE_ATTR[@]}" "git@github.com:ayamir/nvimdots.git" "${DEST_DIR}"
+		execute "git" "clone" "-b" "main" "${CLONE_ATTR[@]}" "git@github.com:LinkZelad/newnvimconfig.git" "${DEST_DIR}"
 	else
 		warn "You have outdated Nvim installed (< ${REQUIRED_NVIM_VERSION})."
 		info "Automatically redirecting you to legacy version..."
-		execute "git" "clone" "-b" "0.7" "${CLONE_ATTR[@]}" "git@github.com:ayamir/nvimdots.git" "${DEST_DIR}"
+		execute "git" "clone" "-b" "0.7" "${CLONE_ATTR[@]}" "git@github.com:LinkZelad/newnvimconfig.git" "${DEST_DIR}"
 	fi
 else
 	if is_latest; then
-		execute "git" "clone" "-b" "main" "${CLONE_ATTR[@]}" "https://github.com/ayamir/nvimdots.git" "${DEST_DIR}"
+		execute "git" "clone" "-b" "main" "${CLONE_ATTR[@]}" "git@github.com:LinkZelad/newnvimconfig.git" "${DEST_DIR}"
 	else
 		warn "You have outdated Nvim installed (< ${REQUIRED_NVIM_VERSION})."
 		info "Automatically redirecting you to legacy version..."
-		execute "git" "clone" "-b" "0.7" "${CLONE_ATTR[@]}" "https://github.com/ayamir/nvimdots.git" "${DEST_DIR}"
+		execute "git" "clone" "-b" "0.7" "${CLONE_ATTR[@]}" "git@github.com:LinkZelad/newnvimconfig.git" "${DEST_DIR}"
 	fi
 fi
 
