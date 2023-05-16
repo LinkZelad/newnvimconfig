@@ -1,9 +1,9 @@
 return function()
-	local transparent_background = false -- Set background transparency here!
+	local transparent_background = require("core.settings").transparent_background
 
 	require("catppuccin").setup({
 		flavour = "mocha", -- Can be one of: latte, frappe, macchiato, mocha
-		background = { light = "latte", dark = "mocha", fra = "frappe" },
+		background = { light = "latte", dark = "mocha" },
 		dim_inactive = {
 			enabled = false,
 			-- Dim inactive splits/windows/buffers.
@@ -47,6 +47,7 @@ return function()
 				},
 			},
 			aerial = false,
+			alpha = false,
 			barbar = false,
 			beacon = false,
 			cmp = true,
@@ -77,7 +78,7 @@ return function()
 			nvimtree = true,
 			overseer = false,
 			pounce = false,
-			semantic_tokens = false,
+			semantic_tokens = true,
 			symbols_outline = false,
 			telekasten = false,
 			telescope = true,
@@ -88,48 +89,19 @@ return function()
 			which_key = true,
 		},
 		color_overrides = {
-			-- mocha = {
-			-- 	rosewater = "#F5E0DC",
-			-- 	flamingo = "#F2CDCD",
-			-- 	mauve = "#DDB6F2",
-			-- 	pink = "#FF79C6",
-			-- 	red = "#FF5555",
-			-- 	maroon = "#E8A2AF",
-			-- 	green = "#50fa7b",
-			-- 	peach = "#F8BD96",
-			-- 	yellow = "#F1FA8C",
-			-- 	blue = "#96CDFB",
-			-- 	sky = "#89DCEB",
-			-- 	teal = "#B5E8E0",
-			-- 	lavender = "#C9CBFF",
-
-			-- 	text = "#D9E0EE",
-			-- 	subtext1 = "#BAC2DE",
-			-- 	subtext0 = "#A6ADC8",
-			-- 	overlay2 = "#C3BAC6",
-			-- 	overlay1 = "#988BA2",
-			-- 	overlay0 = "#6E6C7E",
-			-- 	surface2 = "#6E6C7E",
-			-- 	surface1 = "#575268",
-			-- 	surface0 = "#302D41",
-
-			-- 	base = "#1E1E2E",
-			-- 	mantle = "#1A1826",
-			-- 	crust = "#161320",
-			-- },
 			mocha = {
 				rosewater = "#F5E0DC",
 				flamingo = "#F2CDCD",
 				mauve = "#DDB6F2",
-				pink = "#FF79C6",
-				red = "#BD93F9",
-				maroon = "#FF6E6E",
-				green = "#A4FFFF",
+				pink = "#F5C2E7",
+				red = "#F28FAD",
+				maroon = "#E8A2AF",
 				peach = "#F8BD96",
-				yellow = "#F1FA8C",
-				blue = "#50fa7b",
+				yellow = "#FAE3B0",
+				green = "#ABE9B3",
+				blue = "#96CDFB",
 				sky = "#89DCEB",
-				teal = "#FF92DF",
+				teal = "#B5E8E0",
 				lavender = "#C9CBFF",
 
 				text = "#D9E0EE",
@@ -142,33 +114,9 @@ return function()
 				surface1 = "#575268",
 				surface0 = "#302D41",
 
-				base = "#21222C",
+				base = "#1E1E2E",
 				mantle = "#1A1826",
 				crust = "#161320",
-			},
-			draculas = {
-				bg = "#282A36",
-				fg = "#F8F8F2",
-				selection = "#44475A",
-				comment = "#6272A4",
-				red = "#FF5555",
-				orange = "#FFB86C",
-				yellow = "#F1FA8C",
-				green = "#50fa7b",
-				purple = "#BD93F9",
-				cyan = "#8BE9FD",
-				pink = "#FF79C6",
-				bright_red = "#FF6E6E",
-				bright_green = "#69FF94",
-				bright_yellow = "#FFFFA5",
-				bright_blue = "#D6ACFF",
-				bright_magenta = "#FF92DF",
-				bright_cyan = "#A4FFFF",
-				bright_white = "#FFFFFF",
-				menu = "#21222C",
-				visual = "#3E4452",
-				gutter_fg = "#4B5263",
-				nontext = "#3B4048",
 			},
 		},
 		highlight_overrides = {
@@ -176,7 +124,6 @@ return function()
 				return {
 					-- For base configs.
 					NormalFloat = { fg = cp.text, bg = transparent_background and cp.none or cp.base },
-					-- NormalFloat = { fg = cp.text, bg = dracula_color.bg },
 					CursorLineNr = { fg = cp.green },
 					Search = { bg = cp.surface1, fg = cp.pink, style = { "bold" } },
 					IncSearch = { bg = cp.pink, fg = cp.surface1 },
@@ -202,7 +149,18 @@ return function()
 					FidgetTitle = { fg = cp.blue, style = { "bold" } },
 
 					-- For trouble.nvim
-					TroubleNormal = { bg = cp.base },
+					TroubleNormal = { bg = transparent_background and cp.none or cp.base },
+
+					-- For lsp semantic tokens
+					["@lsp.type.comment"] = { fg = cp.overlay0 },
+					["@lsp.type.enum"] = { link = "@type" },
+					["@lsp.type.property"] = { link = "@property" },
+					["@lsp.type.macro"] = { link = "@constant" },
+					["@lsp.typemod.function.defaultLibrary"] = { fg = cp.blue, style = { "bold", "italic" } },
+					["@lsp.typemod.function.defaultLibrary.c"] = { fg = cp.blue, style = { "bold" } },
+					["@lsp.typemod.function.defaultLibrary.cpp"] = { fg = cp.blue, style = { "bold" } },
+					["@lsp.typemod.method.defaultLibrary"] = { link = "@lsp.typemod.function.defaultLibrary" },
+					["@lsp.typemod.variable.defaultLibrary"] = { fg = cp.flamingo },
 
 					-- For treesitter.
 					["@field"] = { fg = cp.rosewater },

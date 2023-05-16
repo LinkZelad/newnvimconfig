@@ -104,8 +104,7 @@ return function()
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
-			-- theme = "catppuccin",
-			theme = "dracula-nvim",
+			theme = "catppuccin",
 			disabled_filetypes = {},
 			component_separators = "|",
 			section_separators = { left = "", right = "" },
@@ -123,6 +122,7 @@ return function()
 						error = icons.diagnostics.Error,
 						warn = icons.diagnostics.Warning,
 						info = icons.diagnostics.Information,
+						hint = icons.diagnostics.Hint_alt,
 					},
 				},
 				{ get_cwd },
