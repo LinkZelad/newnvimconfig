@@ -22,7 +22,7 @@ local plug_map = {
 	["n|<A-8>"] = map_cr("BufferLineGoToBuffer 8"):with_noremap():with_silent():with_desc("buffer: Goto buffer 8"),
 	["n|<A-9>"] = map_cr("BufferLineGoToBuffer 9"):with_noremap():with_silent():with_desc("bufer: Goto buffer 9"),
 	["n|<leader>x"] = map_cr("BufferLinePickClose"):with_noremap():with_desc("buffer: Select buffer to close"),
-	["n|<leader>w"] = map_cr("bd|bp"):with_noremap():with_desc("buffer: Close curent buffer"),
+	-- ["n|<leader>w"] = map_cr("bd|bp"):with_noremap():with_desc("buffer: Close curent buffer"),
 }
 
 bind.nvim_load_mapping(plug_map)
