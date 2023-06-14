@@ -3,7 +3,8 @@ return function()
 	dracula.setup({
 		-- customize dracula color palette
 		colors = {
-			bg = "#363948",
+			-- bg = "#1F2831",
+			bg = "#262836",
 			fg = "#F8F8F2",
 			selection = "#44475A",
 			comment = "#6272A4",

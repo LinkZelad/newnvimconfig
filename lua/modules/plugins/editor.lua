@@ -10,11 +10,18 @@ editor["rmagatti/auto-session"] = {
 	cmd = { "SessionSave", "SessionRestore", "SessionDelete" },
 	config = require("editor.auto-session"),
 }
-editor["m4xshen/autoclose.nvim"] = {
+-- editor["m4xshen/autoclose.nvim"] = {
+-- 	lazy = true,
+-- 	event = "InsertEnter",
+-- 	config = require("editor.autoclose"),
+-- }
+
+editor["windwp/nvim-autopairs"] = {
 	lazy = true,
 	event = "InsertEnter",
-	config = require("editor.autoclose"),
+	config = require("editor.autopairs"),
 }
+
 editor["max397574/better-escape.nvim"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },

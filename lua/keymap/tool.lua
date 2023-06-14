@@ -197,6 +197,20 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("debug: Open REPL"),
+
+	["n|<leader>ros"] = map_cr("Telescope ros ros"):with_noremap():with_silent():with_desc("Ros: open ros"),
+	["n|<leader>rol"] = map_callback(function()
+			require("ros-nvim.ros").open_lanch_include()
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("Ros: open launch"),
+	["n|<leader>rom"] = map_callback(function()
+			require("ros-nvim.ros").show_interface_definition()
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("Ros: show message and server"),
 }
 
 bind.nvim_load_mapping(plug_map)

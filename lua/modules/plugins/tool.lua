@@ -129,4 +129,21 @@ tool["nvim-telescope/telescope-ui-select.nvim"] = {
 	config = require("tool.telescope-ui"),
 }
 
+tool["Dhanus3133/LeetBuddy.nvim"] = {
+	lazy = true,
+	event = "CmdlineEnter",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"nvim-telescope/telescope.nvim",
+	},
+	config = require("tool.leetbuddy"),
+}
+tool["tadachs/ros-nvim"] = {
+	lazy = true,
+	event = "CmdlineEnter",
+	config = require("tool.ros-nvim"),
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+	},
+}
 return tool
